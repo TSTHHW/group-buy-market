@@ -19,6 +19,7 @@ public class GroupBuyActivity {
 
     /**
      * 活动ID
+
      */
     private Long activityId;
 
