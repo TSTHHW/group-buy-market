@@ -1,9 +1,3 @@
-/**
- * 实体对象；
- * 1. 一般和数据库持久化对象1v1的关系，但因各自开发系统的不同，也有1vn的可能。
- * 2. 如果是老系统改造，那么旧的库表冗余了太多的字段，可能会有nv1的情况
- * 3. 对象名称 XxxEntity
- */
 package cn.bugstack.domain.activity.model.entity;
 
 import lombok.AllArgsConstructor;
@@ -11,11 +5,17 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * @author Fuzhengwei bugstack.cn @小傅哥
+ * @description 营销商品实体信息，通过这样一个信息获取商品优惠信息
+ * @create 2024-12-14 13:46
+ */
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class MarketProductEntity {
+
     /** 用户ID */
     private String userId;
     /** 商品ID */
@@ -24,4 +24,5 @@ public class MarketProductEntity {
     private String source;
     /** 来源 */
     private String channel;
+
 }
