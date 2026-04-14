@@ -12,6 +12,8 @@ import java.math.BigDecimal;
  */
 public abstract class AbstractDiscountCalculateService implements IDiscountCalculateService {
 
+    private static final BigDecimal MIN_PAY_AMOUNT = new BigDecimal("0.01");
+
     @Override
     public BigDecimal calculate(String userId, BigDecimal originalPrice, GroupBuyActivityDiscountVO.GroupBuyDiscount groupBuyDiscount) {
         // 1. 人群标签过滤
@@ -27,6 +29,13 @@ public abstract class AbstractDiscountCalculateService implements IDiscountCalcu
     private boolean filterTagId(String userId, String tagId) {
         // todo xiaofuge 后续开发这部分
         return true;
+    }
+
+    // 判断折扣后金额，最低支付1分钱
+    public static BigDecimal minPayAmount(BigDecimal deductionPrice){
+        if(deductionPrice.compareTo(BigDecimal.ZERO) <= 0)
+            return MIN_PAY_AMOUNT;
+        return deductionPrice;
     }
 
     protected abstract BigDecimal doCalculate(BigDecimal originalPrice, GroupBuyActivityDiscountVO.GroupBuyDiscount groupBuyDiscount);

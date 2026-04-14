@@ -30,7 +30,8 @@ public class MJCalculateService extends AbstractDiscountCalculateService {
 
         BigDecimal deductionPrice = originalPrice.subtract(marketRate);
 
-        if(deductionPrice.compareTo(BigDecimal.ZERO) <= 0) return new BigDecimal("0.01");
+        minPayAmount(deductionPrice);
+
         return deductionPrice;
     }
 }
