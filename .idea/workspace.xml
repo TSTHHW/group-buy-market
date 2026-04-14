@@ -4,20 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d2906e2-5e89-4fc2-9f07-02515bd66059" name="Changes" comment="人群标签数据采集完成">
-      <change afterPath="$PROJECT_DIR$/group-buy-market-app/src/main/resources/mybatis/mapper/sc_sku_activity_mapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/activity/model/valobj/ScSkuActivityVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/activity/service/trial/node/ErrorNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-buy-market-infrastructure/src/main/java/cn/bugstack/infrastructure/dao/IScSkuActivityDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-buy-market-infrastructure/src/main/java/cn/bugstack/infrastructure/dao/po/ScSkuActivity.java" afterDir="false" />
+    <list default="true" id="0d2906e2-5e89-4fc2-9f07-02515bd66059" name="Changes" comment="whh">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/group-buy-market-app/src/main/resources/mybatis/mapper/group_buy_activity_mapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-app/src/main/resources/mybatis/mapper/group_buy_activity_mapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/activity/adapter/repository/IActivityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/activity/adapter/repository/IActivityRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group-buy-market-app/src/test/java/cn/bugstack/test/domain/activity/IIndexGroupBuyMarketServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-app/src/test/java/cn/bugstack/test/domain/activity/IIndexGroupBuyMarketServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/activity/service/trial/node/ErrorNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/activity/service/trial/node/ErrorNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/activity/service/trial/node/MarketNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/activity/service/trial/node/MarketNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/activity/service/trial/thread/QueryGroupBuyActivityDiscountVOThreadTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/activity/service/trial/thread/QueryGroupBuyActivityDiscountVOThreadTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/group-buy-market-infrastructure/src/main/java/cn/bugstack/infrastructure/adapter/repository/ActivityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-infrastructure/src/main/java/cn/bugstack/infrastructure/adapter/repository/ActivityRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/group-buy-market-infrastructure/src/main/java/cn/bugstack/infrastructure/dao/IGroupBuyActivityDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-infrastructure/src/main/java/cn/bugstack/infrastructure/dao/IGroupBuyActivityDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/group-buy-market-infrastructure/src/main/java/cn/bugstack/infrastructure/dao/po/GroupBuyActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-infrastructure/src/main/java/cn/bugstack/infrastructure/dao/po/GroupBuyActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group-buy-market-types/src/main/java/cn/bugstack/types/enums/ResponseCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-types/src/main/java/cn/bugstack/types/enums/ResponseCode.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +93,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.ITagServiceTest.test_get_tag_bitmap">
+  <component name="RunManager" selected="JUnit.IIndexGroupBuyMarketServiceTest.test_indexMarketTrial">
     <configuration name="IIndexGroupBuyMarketServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="group-buy-market-app" />
       <extension name="coverage">
@@ -189,11 +181,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.IIndexGroupBuyMarketServiceTest.test_indexMarketTrial" />
+        <item itemvalue="JUnit.IIndexGroupBuyMarketServiceTest" />
         <item itemvalue="JUnit.ITagServiceTest.test_tag_job" />
         <item itemvalue="JUnit.ITagServiceTest.test_get_tag_bitmap" />
         <item itemvalue="JUnit.ITagServiceTest" />
-        <item itemvalue="JUnit.IIndexGroupBuyMarketServiceTest.test_indexMarketTrial" />
-        <item itemvalue="JUnit.IIndexGroupBuyMarketServiceTest" />
       </list>
     </recent_temporary>
   </component>
@@ -238,7 +230,7 @@
       <workItem from="1776144465843" duration="2686000" />
       <workItem from="1776148659917" duration="2672000" />
       <workItem from="1776152752927" duration="4454000" />
-      <workItem from="1776158317247" duration="2696000" />
+      <workItem from="1776158317247" duration="7899000" />
     </task>
     <task id="LOCAL-00001" summary="build">
       <option name="closed" value="true" />
@@ -288,7 +280,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776051277793</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="whh">
+      <option name="closed" value="true" />
+      <created>1776161072820</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1776161072820</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -324,17 +324,7 @@
     <MESSAGE value="新建活动和折扣的mapper接口" />
     <MESSAGE value="试算模型抽象模板设计" />
     <MESSAGE value="策略模式优惠折扣计算完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="策略模式优惠折扣计算完成" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/group-buy-market-app/src/test/java/cn/bugstack/test/domain/activity/IIndexGroupBuyMarketServiceTest.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="whh" />
+    <option name="LAST_COMMIT_MESSAGE" value="whh" />
   </component>
 </project>
