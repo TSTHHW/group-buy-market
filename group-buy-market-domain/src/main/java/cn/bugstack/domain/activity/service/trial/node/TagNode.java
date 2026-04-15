@@ -28,16 +28,24 @@ public class TagNode extends AbstractGroupBuyMarketSupport<MarketProductEntity, 
         GroupBuyActivityDiscountVO groupBuyActivityDiscountVO = dynamicContext.getGroupBuyActivityDiscountVO();
 
         String tagId = groupBuyActivityDiscountVO.getTagId();
+        String tagScope = groupBuyActivityDiscountVO.getTagScope();
         boolean visible = groupBuyActivityDiscountVO.isVisible();
         boolean enable = groupBuyActivityDiscountVO.isEnable();
 
+        log.info("拼团商品查询试算服务-TagNode userId:{} tagId:{} tagScope:{} visible:{} enable:{}", 
+            requestParameter.getUserId(), tagId, tagScope, visible, enable);
+
         if(StringUtils.isBlank(tagId)){
+            log.info("拼团商品查询试算服务-TagNode userId:{} tagId为空，设置可见性和参与性为true", requestParameter.getUserId());
             dynamicContext.setVisible(true);
             dynamicContext.setEnable(true);
             return router(requestParameter, dynamicContext);
         }
 
         boolean isWithin = repository.isTagCrowdRange(tagId, requestParameter.getUserId());
+        log.info("拼团商品查询试算服务-TagNode userId:{} isWithin:{} 最终可见性:{} 最终参与性:{}", 
+            requestParameter.getUserId(), isWithin, visible || isWithin, enable || isWithin);
+        
         dynamicContext.setVisible(visible || isWithin);
         dynamicContext.setEnable(enable || isWithin);
 

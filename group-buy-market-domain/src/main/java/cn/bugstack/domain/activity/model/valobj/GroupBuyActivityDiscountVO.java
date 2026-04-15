@@ -88,7 +88,8 @@ public class GroupBuyActivityDiscountVO {
      */
     public boolean isVisible() {
         if(StringUtils.isBlank(this.tagScope)) return TagScopeEnumVO.VISIBLE.getAllow();
-        String[] split = this.tagScope.split(Constants.SPLIT);
+        // 同时支持中文逗号和英文逗号
+        String[] split = this.tagScope.contains("，") ? this.tagScope.split("，") : this.tagScope.split(Constants.SPLIT);
         if (split.length > 0 && Objects.equals(split[0], "1") && StringUtils.isNotBlank(split[0])) {
             return TagScopeEnumVO.VISIBLE.getRefuse();
         }
@@ -101,7 +102,8 @@ public class GroupBuyActivityDiscountVO {
      */
     public boolean isEnable() {
         if(StringUtils.isBlank(this.tagScope)) return TagScopeEnumVO.VISIBLE.getAllow();
-        String[] split = this.tagScope.split(Constants.SPLIT);
+        // 同时支持中文逗号和英文逗号
+        String[] split = this.tagScope.contains("，") ? this.tagScope.split("，") : this.tagScope.split(Constants.SPLIT);
         if (split.length == 2 && Objects.equals(split[1], "2") && StringUtils.isNotBlank(split[1])) {
             return TagScopeEnumVO.ENABLE.getRefuse();
         }
