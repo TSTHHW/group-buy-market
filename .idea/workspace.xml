@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d2906e2-5e89-4fc2-9f07-02515bd66059" name="Changes" comment="拆分库表关联关系">
-      <change afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/activity/model/valobj/TagScopeEnumVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/activity/service/trial/node/TagNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/activity/adapter/repository/IActivityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/activity/adapter/repository/IActivityRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/activity/model/valobj/GroupBuyActivityDiscountVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/activity/model/valobj/GroupBuyActivityDiscountVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/activity/service/trial/factory/DefaultActivityStrategyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/activity/service/trial/factory/DefaultActivityStrategyFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/group-buy-market-infrastructure/src/main/java/cn/bugstack/infrastructure/adapter/repository/ActivityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-infrastructure/src/main/java/cn/bugstack/infrastructure/adapter/repository/ActivityRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group-buy-market-app/src/test/java/cn/bugstack/test/domain/tag/ITagServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-app/src/test/java/cn/bugstack/test/domain/tag/ITagServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +26,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="tagNode-test" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -96,7 +91,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.IIndexGroupBuyMarketServiceTest.test_indexMarketTrial">
+  <component name="RunManager" selected="JUnit.IIndexGroupBuyMarketServiceTest">
     <configuration name="IIndexGroupBuyMarketServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="group-buy-market-app" />
       <extension name="coverage">
@@ -184,11 +179,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.IIndexGroupBuyMarketServiceTest.test_indexMarketTrial" />
         <item itemvalue="JUnit.IIndexGroupBuyMarketServiceTest" />
+        <item itemvalue="JUnit.ITagServiceTest" />
+        <item itemvalue="JUnit.IIndexGroupBuyMarketServiceTest.test_indexMarketTrial" />
         <item itemvalue="JUnit.ITagServiceTest.test_tag_job" />
         <item itemvalue="JUnit.ITagServiceTest.test_get_tag_bitmap" />
-        <item itemvalue="JUnit.ITagServiceTest" />
       </list>
     </recent_temporary>
   </component>
