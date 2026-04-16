@@ -4,18 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d2906e2-5e89-4fc2-9f07-02515bd66059" name="Changes" comment="whh">
-      <change afterPath="$PROJECT_DIR$/group-buy-market-api/src/main/java/cn/bugstack/api/IDCCService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-buy-market-app/src/main/java/cn/bugstack/config/DCCValueBeanFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-buy-market-infrastructure/src/main/java/cn/bugstack/infrastructure/dcc/DCCService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-buy-market-trigger/src/main/java/cn/bugstack/trigger/http/DCCController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-buy-market-types/src/main/java/cn/bugstack/types/annotation/DCCValue.java" afterDir="false" />
+    <list default="true" id="0d2906e2-5e89-4fc2-9f07-02515bd66059" name="Changes" comment="动态配置开关操作">
+      <change afterPath="$PROJECT_DIR$/group-buy-market-app/src/test/java/cn/bugstack/test/trigger/DCCControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/activity/adapter/repository/IActivityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/activity/adapter/repository/IActivityRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/activity/service/trial/node/SwitchNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/activity/service/trial/node/SwitchNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/group-buy-market-infrastructure/src/main/java/cn/bugstack/infrastructure/adapter/repository/ActivityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-infrastructure/src/main/java/cn/bugstack/infrastructure/adapter/repository/ActivityRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/group-buy-market-trigger/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-trigger/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/group-buy-market-types/src/main/java/cn/bugstack/types/enums/ResponseCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-types/src/main/java/cn/bugstack/types/enums/ResponseCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group-buy-market-trigger/src/main/java/cn/bugstack/trigger/http/DCCController.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-trigger/src/main/java/cn/bugstack/trigger/http/DCCController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +22,7 @@
         <option value="AnnotationType" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Spring Boot Test" />
       </list>
     </option>
   </component>
@@ -79,6 +72,8 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JUnit.DCCControllerTest.executor": "Run",
+    "JUnit.DCCControllerTest.test_updateConfig2indexMarketTrial.executor": "Run",
     "JUnit.IIndexGroupBuyMarketServiceTest.executor": "Run",
     "JUnit.IIndexGroupBuyMarketServiceTest.test_indexMarketTrial.executor": "Run",
     "JUnit.IIndexGroupBuyMarketServiceTest.test_indexMarketTrial_no_tag.executor": "Run",
@@ -90,6 +85,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.Application.executor": "Run",
     "git-widget-placeholder": "26-04-15-dcc",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
@@ -102,7 +98,38 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.IIndexGroupBuyMarketServiceTest">
+  <component name="RunManager" selected="JUnit.DCCControllerTest.test_updateConfig2indexMarketTrial">
+    <configuration name="DCCControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="group-buy-market-app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.bugstack.test.trigger.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cn.bugstack.test.trigger" />
+      <option name="MAIN_CLASS_NAME" value="cn.bugstack.test.trigger.DCCControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DCCControllerTest.test_updateConfig2indexMarketTrial" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="group-buy-market-app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.bugstack.test.trigger.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cn.bugstack.test.trigger" />
+      <option name="MAIN_CLASS_NAME" value="cn.bugstack.test.trigger.DCCControllerTest" />
+      <option name="METHOD_NAME" value="test_updateConfig2indexMarketTrial" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="IIndexGroupBuyMarketServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="group-buy-market-app" />
       <extension name="coverage">
@@ -150,37 +177,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ITagServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="group-buy-market-app" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cn.bugstack.test.domain.tag.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="cn.bugstack.test.domain.tag" />
-      <option name="MAIN_CLASS_NAME" value="cn.bugstack.test.domain.tag.ITagServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ITagServiceTest.test_tag_job" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="group-buy-market-app" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cn.bugstack.test.domain.tag.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="cn.bugstack.test.domain.tag" />
-      <option name="MAIN_CLASS_NAME" value="cn.bugstack.test.domain.tag.ITagServiceTest" />
-      <option name="METHOD_NAME" value="test_tag_job" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="group-buy-market-app" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="cn.bugstack.Application" />
@@ -190,11 +186,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.DCCControllerTest.test_updateConfig2indexMarketTrial" />
+        <item itemvalue="JUnit.DCCControllerTest" />
         <item itemvalue="JUnit.IIndexGroupBuyMarketServiceTest" />
         <item itemvalue="JUnit.IIndexGroupBuyMarketServiceTest.test_indexMarketTrial_no_tag" />
         <item itemvalue="JUnit.IIndexGroupBuyMarketServiceTest.test_indexMarketTrial" />
-        <item itemvalue="JUnit.ITagServiceTest" />
-        <item itemvalue="JUnit.ITagServiceTest.test_tag_job" />
       </list>
     </recent_temporary>
   </component>
@@ -242,6 +238,7 @@
       <workItem from="1776158317247" duration="7899000" />
       <workItem from="1776185315365" duration="1374000" />
       <workItem from="1776228099868" duration="5046000" />
+      <workItem from="1776313018691" duration="1380000" />
     </task>
     <task id="LOCAL-00001" summary="build">
       <option name="closed" value="true" />
@@ -299,7 +296,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776161072820</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="动态配置开关操作">
+      <option name="closed" value="true" />
+      <created>1776268858853</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1776268858853</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -337,6 +342,7 @@
     <MESSAGE value="策略模式优惠折扣计算完成" />
     <MESSAGE value="whh" />
     <MESSAGE value="修改bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改bug" />
+    <MESSAGE value="动态配置开关操作" />
+    <option name="LAST_COMMIT_MESSAGE" value="动态配置开关操作" />
   </component>
 </project>
