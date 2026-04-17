@@ -14,14 +14,12 @@ import cn.bugstack.domain.trade.model.entity.PayDiscountEntity;
 import cn.bugstack.domain.trade.model.entity.UserEntity;
 import cn.bugstack.domain.trade.model.valobj.GroupBuyProgressVO;
 import cn.bugstack.domain.trade.service.ITradeOrderService;
-import cn.bugstack.domain.trade.service.TradeOrderService;
 import cn.bugstack.types.enums.ResponseCode;
 import cn.bugstack.types.exception.AppException;
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -41,7 +39,6 @@ public class MarketTradeController implements IMarketTradeService {
     private IndexGroupBuyMarketService indexGroupBuyMarketService;
 
     @Override
-    @PostMapping("/lockMarketPayOrder")
     public Response<LockMarketPayOrderResponseDTO> lockMarketPayOrder(LockMarketPayOrderRequestDTO requestDTO) {
 
 
@@ -72,7 +69,6 @@ public class MarketTradeController implements IMarketTradeService {
                         .build();
 
                 log.info("交易锁单记录(存在):{} marketPayOrderEntity:{}", userId, JSON.toJSONString(marketPayOrderEntity));
-
                 return Response.<LockMarketPayOrderResponseDTO>builder()
                         .code(ResponseCode.SUCCESS.getCode())
                         .info(ResponseCode.SUCCESS.getInfo())
@@ -82,7 +78,7 @@ public class MarketTradeController implements IMarketTradeService {
 
             if(null != teamId){
                 GroupBuyProgressVO groupBuyProgressVO = tradeOrderService.queryGroupBuyProgress(teamId);
-                if(null != groupBuyProgressVO || Objects.equals(groupBuyProgressVO.getLockCount(),groupBuyProgressVO.getTargetCount())){
+                if(null != groupBuyProgressVO && Objects.equals(groupBuyProgressVO.getLockCount(),groupBuyProgressVO.getTargetCount())){
                     log.info("交易锁单拦截-拼单目标已达成:{} {}", userId, teamId);
                     return Response.<LockMarketPayOrderResponseDTO>builder()
                             .code(ResponseCode.E0006.getCode())
