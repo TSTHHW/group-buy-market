@@ -5,11 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d2906e2-5e89-4fc2-9f07-02515bd66059" name="Changes" comment="动态配置开关操作">
+      <change afterPath="$PROJECT_DIR$/group-buy-market-app/src/test/java/cn/bugstack/test/types/Link01Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/group-buy-market-app/src/test/java/cn/bugstack/test/types/Link02Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/group-buy-market-app/src/test/java/cn/bugstack/test/types/rule01/factory/Rule01TradeRuleFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/group-buy-market-app/src/test/java/cn/bugstack/test/types/rule01/logic/RuleLogic101.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/group-buy-market-app/src/test/java/cn/bugstack/test/types/rule01/logic/RuleLogic102.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/group-buy-market-app/src/test/java/cn/bugstack/test/types/rule02/factory/Rule02TradeRuleFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/group-buy-market-app/src/test/java/cn/bugstack/test/types/rule02/logic/RuleLogic201.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/group-buy-market-app/src/test/java/cn/bugstack/test/types/rule02/logic/RuleLogic202.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/group-buy-market-app/src/test/java/cn/bugstack/test/types/rule02/logic/XxxResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/group-buy-market-types/src/main/java/cn/bugstack/types/design/framework/link/model1/AbstractLogicLink.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/group-buy-market-types/src/main/java/cn/bugstack/types/design/framework/link/model1/ILogicChainArmory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/group-buy-market-types/src/main/java/cn/bugstack/types/design/framework/link/model1/ILogicLink.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/group-buy-market-types/src/main/java/cn/bugstack/types/design/framework/link/model2/LinkArmory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/group-buy-market-types/src/main/java/cn/bugstack/types/design/framework/link/model2/chain/BusinessLinkedList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/group-buy-market-types/src/main/java/cn/bugstack/types/design/framework/link/model2/chain/ILink.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/group-buy-market-types/src/main/java/cn/bugstack/types/design/framework/link/model2/chain/LinkedList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/group-buy-market-types/src/main/java/cn/bugstack/types/design/framework/link/model2/handler/ILogicHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/group-buy-market-app/src/main/resources/mybatis/mapper/group_buy_order_list_mapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-app/src/main/resources/mybatis/mapper/group_buy_order_list_mapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/group-buy-market-app/src/main/resources/mybatis/mapper/group_buy_order_mapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-app/src/main/resources/mybatis/mapper/group_buy_order_mapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/group-buy-market-app/src/test/java/cn/bugstack/test/trigger/MarketTradeControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-app/src/test/java/cn/bugstack/test/trigger/MarketTradeControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/group-buy-market-trigger/src/main/java/cn/bugstack/trigger/http/MarketTradeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-trigger/src/main/java/cn/bugstack/trigger/http/MarketTradeController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +36,8 @@
         <option value="AnnotationType" />
         <option value="Spring Boot Test" />
         <option value="Enum" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -82,6 +95,8 @@
     "JUnit.ITagServiceTest.executor": "Run",
     "JUnit.ITagServiceTest.test_get_tag_bitmap.executor": "Run",
     "JUnit.ITagServiceTest.test_tag_job.executor": "Run",
+    "JUnit.Link01Test.executor": "Run",
+    "JUnit.Link02Test.executor": "Run",
     "JUnit.MarketTradeControllerTest.test_lockMarketPayOrder.executor": "Run",
     "JUnit.MarketTradeControllerTest.test_lockMarketPayOrder_teamId_not_null.executor": "Run",
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
@@ -94,7 +109,7 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "Spring Boot.Application.executor": "Run",
-    "git-widget-placeholder": "26-04-16-trade",
+    "git-widget-placeholder": "26-04-18-link-design",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -106,38 +121,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.MarketTradeControllerTest.test_lockMarketPayOrder_teamId_not_null">
-    <configuration name="DCCControllerTest.test_updateConfig2indexMarketTrial" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="group-buy-market-app" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cn.bugstack.test.trigger.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="cn.bugstack.test.trigger" />
-      <option name="MAIN_CLASS_NAME" value="cn.bugstack.test.trigger.DCCControllerTest" />
-      <option name="METHOD_NAME" value="test_updateConfig2indexMarketTrial" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="IIndexGroupBuyMarketServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="group-buy-market-app" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cn.bugstack.test.domain.activity.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="cn.bugstack.test.domain.activity" />
-      <option name="MAIN_CLASS_NAME" value="cn.bugstack.test.domain.activity.IIndexGroupBuyMarketServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.Link02Test">
     <configuration name="IIndexGroupBuyMarketServiceTest.test_indexMarketTrial_no_tag" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="group-buy-market-app" />
       <extension name="coverage">
@@ -150,6 +134,36 @@
       <option name="MAIN_CLASS_NAME" value="cn.bugstack.test.domain.activity.IIndexGroupBuyMarketServiceTest" />
       <option name="METHOD_NAME" value="test_indexMarketTrial_no_tag" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Link01Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="group-buy-market-app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.bugstack.test.types.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cn.bugstack.test.types" />
+      <option name="MAIN_CLASS_NAME" value="cn.bugstack.test.types.Link01Test" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Link02Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="group-buy-market-app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.bugstack.test.types.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cn.bugstack.test.types" />
+      <option name="MAIN_CLASS_NAME" value="cn.bugstack.test.types.Link02Test" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -195,11 +209,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.Link02Test" />
+        <item itemvalue="JUnit.Link01Test" />
         <item itemvalue="JUnit.MarketTradeControllerTest.test_lockMarketPayOrder_teamId_not_null" />
         <item itemvalue="JUnit.MarketTradeControllerTest.test_lockMarketPayOrder" />
         <item itemvalue="JUnit.IIndexGroupBuyMarketServiceTest.test_indexMarketTrial_no_tag" />
-        <item itemvalue="JUnit.IIndexGroupBuyMarketServiceTest" />
-        <item itemvalue="JUnit.DCCControllerTest.test_updateConfig2indexMarketTrial" />
       </list>
     </recent_temporary>
   </component>
@@ -253,6 +267,7 @@
       <workItem from="1776390468979" duration="2665000" />
       <workItem from="1776414317336" duration="14832000" />
       <workItem from="1776465489375" duration="587000" />
+      <workItem from="1776470387800" duration="26048000" />
     </task>
     <task id="LOCAL-00001" summary="build">
       <option name="closed" value="true" />
