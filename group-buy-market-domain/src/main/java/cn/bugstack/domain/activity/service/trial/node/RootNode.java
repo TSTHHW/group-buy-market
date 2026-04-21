@@ -14,11 +14,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 根节点
- * @create 2024-12-14 14:17
- */
+
 @Slf4j
 @Service
 public class RootNode extends AbstractGroupBuyMarketSupport<MarketProductEntity, DefaultActivityStrategyFactory.DynamicContext, TrialBalanceEntity> {

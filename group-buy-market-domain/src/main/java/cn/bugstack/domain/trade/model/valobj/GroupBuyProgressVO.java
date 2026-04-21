@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class GroupBuyProgressVO {
+
     /** 目标数量 */
     private Integer targetCount;
     /** 完成数量 */

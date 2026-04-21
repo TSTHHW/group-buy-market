@@ -28,4 +28,5 @@ public enum TradeOrderStatusEnumVO {
         }
         return CREATE;
     }
+
 }

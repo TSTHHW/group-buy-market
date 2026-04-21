@@ -41,6 +41,8 @@ public class GroupBuyOrderList {
 
     private String outTradeNo;
 
+    private String bizId;
+
     private Date createTime;
 
     private Date updateTime;

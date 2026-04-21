@@ -21,6 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -39,6 +40,7 @@ public class MarketTradeController implements IMarketTradeService {
     private IndexGroupBuyMarketService indexGroupBuyMarketService;
 
     @Override
+    @RequestMapping(value = "lock_market_pay_order", method = RequestMethod.POST)
     public Response<LockMarketPayOrderResponseDTO> lockMarketPayOrder(LockMarketPayOrderRequestDTO requestDTO) {
 
 
@@ -115,7 +117,8 @@ public class MarketTradeController implements IMarketTradeService {
                             .goodsId(goodsId)
                             .goodsName(trialBalanceEntity.getGoodsName())
                             .originalPrice(trialBalanceEntity.getOriginalPrice())
-                            .deductionPrice(trialBalanceEntity.getDeductionPrice())
+                            .deductionPrice(trialBalanceEntity.getOriginalPrice().subtract(trialBalanceEntity.getDeductionPrice()))
+                            .payPrice(trialBalanceEntity.getPayPrice())
                             .outTradeNo(outTradeNo)
                             .build());
 

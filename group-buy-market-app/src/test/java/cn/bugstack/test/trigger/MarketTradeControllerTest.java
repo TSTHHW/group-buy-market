@@ -30,9 +30,9 @@ public class MarketTradeControllerTest {
     @Test
     public void test_lockMarketPayOrder() {
         LockMarketPayOrderRequestDTO lockMarketPayOrderRequestDTO = new LockMarketPayOrderRequestDTO();
-        lockMarketPayOrderRequestDTO.setUserId("xiaofuge");
+        lockMarketPayOrderRequestDTO.setUserId("whh");
         lockMarketPayOrderRequestDTO.setTeamId(null);
-        lockMarketPayOrderRequestDTO.setActivityId(100123L);
+        lockMarketPayOrderRequestDTO.setActivityId(1001L);
         lockMarketPayOrderRequestDTO.setGoodsId("9890001");
         lockMarketPayOrderRequestDTO.setSource("s01");
         lockMarketPayOrderRequestDTO.setChannel("c01");
@@ -47,8 +47,8 @@ public class MarketTradeControllerTest {
     public void test_lockMarketPayOrder_teamId_not_null() {
         LockMarketPayOrderRequestDTO lockMarketPayOrderRequestDTO = new LockMarketPayOrderRequestDTO();
         lockMarketPayOrderRequestDTO.setUserId("xiaofuge");
-        lockMarketPayOrderRequestDTO.setTeamId("18304391");
-        lockMarketPayOrderRequestDTO.setActivityId(100123L);
+        lockMarketPayOrderRequestDTO.setTeamId("29934156");
+        lockMarketPayOrderRequestDTO.setActivityId(1001L);
         lockMarketPayOrderRequestDTO.setGoodsId("9890001");
         lockMarketPayOrderRequestDTO.setSource("s01");
         lockMarketPayOrderRequestDTO.setChannel("c01");

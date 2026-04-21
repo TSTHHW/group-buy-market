@@ -22,7 +22,7 @@ public class DCCController implements IDCCService {
     @Resource
     private RTopic dccTopic;
 
-    @RequestMapping(value = "updateConfig", method = RequestMethod.GET)
+    @RequestMapping(value = "update_config", method = RequestMethod.GET)
     @Override
     public Response<Boolean> updateConfig(String key, String value) {
         try {

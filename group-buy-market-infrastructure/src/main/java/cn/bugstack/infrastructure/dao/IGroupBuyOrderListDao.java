@@ -9,4 +9,6 @@ public interface IGroupBuyOrderListDao {
     void insert(GroupBuyOrderList groupBuyOrderListReq);
 
     GroupBuyOrderList queryGroupBuyOrderRecordByOutTradeNo(GroupBuyOrderList groupBuyOrderListReq);
+
+    Integer queryOrderCountByActivityId(GroupBuyOrderList groupBuyOrderListReq);
 }
