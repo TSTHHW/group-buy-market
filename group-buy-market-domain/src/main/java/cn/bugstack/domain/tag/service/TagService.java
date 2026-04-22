@@ -32,6 +32,15 @@ public class TagService implements ITagService{
         List<String> userIdList = new ArrayList<String>() {{
             add("xiaofuge");
             add("liergou");
+            add("whh1");
+            add("xhg2");
+            add("wjj3");
+            add("ooo4");
+            add("tst5");
+            add("uuu6");
+            add("iii7");
+            add("pjk8");
+            add("pkm9");
         }};
 
         log.info("准备写入用户列表: {}", userIdList);
