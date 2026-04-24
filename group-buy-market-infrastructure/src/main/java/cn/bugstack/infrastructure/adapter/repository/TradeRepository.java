@@ -14,6 +14,7 @@ import cn.bugstack.infrastructure.dao.po.GroupBuyActivity;
 import cn.bugstack.infrastructure.dao.po.GroupBuyOrder;
 import cn.bugstack.infrastructure.dao.po.GroupBuyOrderList;
 import cn.bugstack.infrastructure.dao.po.NotifyTask;
+import cn.bugstack.infrastructure.dcc.DCCService;
 import cn.bugstack.types.common.Constants;
 import cn.bugstack.types.enums.ActivityStatusEnumVO;
 import cn.bugstack.types.enums.GroupBuyOrderEnumVO;
@@ -29,6 +30,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -46,6 +49,8 @@ public class TradeRepository implements ITradeRepository {
     private IGroupBuyOrderListDao groupBuyOrderListDao;
     @Resource
     private INotifyTaskDao notifyTaskDao;
+    @Resource
+    private DCCService dccService;
 
     @Override
     public MarketPayOrderEntity queryMarketPayOrderEntityByOutTradeNo(String userId, String outTradeNo) {
@@ -85,8 +90,13 @@ public class TradeRepository implements ITradeRepository {
         String teamId = payActivityEntity.getTeamId();
         if(StringUtils.isBlank(teamId)){
             teamId = RandomStringUtils.randomNumeric(8);
+            // 日期处理
+            Date currentDate = new Date();
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(currentDate);
+            calendar.add(Calendar.MINUTE, payActivityEntity.getValidTime());
 
-            GroupBuyOrder groupBuyOrder = new GroupBuyOrder().builder()
+            GroupBuyOrder groupBuyOrder = GroupBuyOrder.builder()
                     .teamId(teamId)
                     .activityId(payActivityEntity.getActivityId())
                     .source(payDiscountEntity.getSource())
@@ -97,19 +107,20 @@ public class TradeRepository implements ITradeRepository {
                     .targetCount(payActivityEntity.getTargetCount())
                     .completeCount(0)
                     .lockCount(1)
+                    .validStartTime(currentDate)
+                    .validEndTime(calendar.getTime())
                     .build();
 
             groupBuyOrderDao.insert(groupBuyOrder);
         } else{
             int updateAddTargetCount = groupBuyOrderDao.updateAddLockCount(teamId);
-
-            if(1 != updateAddTargetCount){
-                throw new AppException(E0005.getCode());
+            if (1 != updateAddTargetCount) {
+                throw new AppException(ResponseCode.E0005);
             }
         }
 
         String orderId = RandomStringUtils.randomNumeric(12);
-        GroupBuyOrderList groupBuyOrderList = new GroupBuyOrderList().builder()
+        GroupBuyOrderList groupBuyOrderList = GroupBuyOrderList.builder()
                 .userId(userEntity.getUserId())
                 .teamId(teamId)
                 .orderId(orderId)
@@ -130,7 +141,7 @@ public class TradeRepository implements ITradeRepository {
         try {
             groupBuyOrderListDao.insert(groupBuyOrderList);
         } catch (DuplicateKeyException e) {
-            throw new AppException(ResponseCode.INDEX_EXCEPTION.getCode());
+            throw new AppException(ResponseCode.INDEX_EXCEPTION);
         }
 
         return MarketPayOrderEntity.builder()
@@ -177,11 +188,15 @@ public class TradeRepository implements ITradeRepository {
                 .completeCount(groupBuyOrder.getCompleteCount())
                 .lockCount(groupBuyOrder.getLockCount())
                 .status(GroupBuyOrderEnumVO.valueOf(groupBuyOrder.getStatus()))
+                .validStartTime(groupBuyOrder.getValidStartTime())
+                .validEndTime(groupBuyOrder.getValidEndTime())
                 .build();
     }
 
+    @Transactional(timeout = 500)
     @Override
     public void settlementMarketPayOrder(GroupBuyTeamSettlementAggregate groupBuyTeamSettlementAggregate) {
+
         UserEntity userEntity = groupBuyTeamSettlementAggregate.getUserEntity();
         GroupBuyTeamEntity groupBuyTeamEntity = groupBuyTeamSettlementAggregate.getGroupBuyTeamEntity();
         TradePaySuccessEntity tradePaySuccessEntity = groupBuyTeamSettlementAggregate.getTradePaySuccessEntity();
@@ -189,6 +204,8 @@ public class TradeRepository implements ITradeRepository {
         GroupBuyOrderList groupBuyOrderListReq = new GroupBuyOrderList();
         groupBuyOrderListReq.setUserId(userEntity.getUserId());
         groupBuyOrderListReq.setOutTradeNo(tradePaySuccessEntity.getOutTradeNo());
+        groupBuyOrderListReq.setOutTradeTime(tradePaySuccessEntity.getOutTradeTime());
+
         int updateOrderListStatusCount = groupBuyOrderListDao.updateOrderStatus2COMPLETE(groupBuyOrderListReq);
         if (1 != updateOrderListStatusCount) {
             throw new AppException(ResponseCode.UPDATE_ZERO);
@@ -223,5 +240,11 @@ public class TradeRepository implements ITradeRepository {
         }
 
     }
+
+    @Override
+    public boolean isSCBlackIntercept(String source, String channel) {
+        return dccService.isSCBlackIntercept(source, channel);
+    }
+
 
 }

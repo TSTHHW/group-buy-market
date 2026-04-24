@@ -37,12 +37,12 @@ public class ITradeLockOrderServiceTest {
     @Test
     public void test_lockMarketPayOrder() throws Exception {
         // 入参信息
-        Long activityId = 111111L;
-        String userId = "xiaofuge";
-        String goodsId = "9890001";
+        Long activityId = 10001L;
+        String userId = "liergou";
+        String goodsId = "998";
         String source = "s01";
         String channel = "c01";
-        String outTradeNo = "542075773071";
+        String outTradeNo = "837973581708";
 
         // 1. 获取试算优惠，有【activityId】优先使用
         TrialBalanceEntity trialBalanceEntity = indexGroupBuyMarketService.indexMarketTrial(MarketProductEntity.builder()

@@ -4,36 +4,41 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d2906e2-5e89-4fc2-9f07-02515bd66059" name="Changes" comment="交易规则责任链过滤">
-      <change afterPath="$PROJECT_DIR$/group-buy-market-app/src/main/resources/mybatis/mapper/notify_task_mapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-buy-market-app/src/test/java/cn/bugstack/test/domain/trade/ITradeLockOrderServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-buy-market-app/src/test/java/cn/bugstack/test/domain/trade/TradeSettlementOrderServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/model/aggregate/GroupBuyTeamSettlementAggregate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/model/entity/GroupBuyTeamEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/model/entity/TradePaySettlementEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/model/entity/TradePaySuccessEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/service/ITradeSettlementOrderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/service/settlement/TradeSettlementOrderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-buy-market-infrastructure/src/main/java/cn/bugstack/infrastructure/dao/INotifyTaskDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-buy-market-infrastructure/src/main/java/cn/bugstack/infrastructure/dao/po/NotifyTask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-buy-market-types/src/main/java/cn/bugstack/types/enums/GroupBuyOrderEnumVO.java" afterDir="false" />
+    <list default="true" id="0d2906e2-5e89-4fc2-9f07-02515bd66059" name="Changes" comment="拼团组队结算统计">
+      <change afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/model/entity/TradeSettlementRuleCommandEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/model/entity/TradeSettlementRuleFilterBackEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/service/settlement/factory/TradeSettlementRuleFilterFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/service/settlement/filter/EndRuleFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/service/settlement/filter/OutTradeNoRuleFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/service/settlement/filter/SCRuleFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/service/settlement/filter/SettableRuleFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group-buy-market-app/src/main/resources/mybatis/mapper/group_buy_discount_mapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-app/src/main/resources/mybatis/mapper/group_buy_discount_mapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/group-buy-market-app/src/main/resources/mybatis/mapper/group_buy_order_list_mapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-app/src/main/resources/mybatis/mapper/group_buy_order_list_mapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/group-buy-market-app/src/main/resources/mybatis/mapper/group_buy_order_mapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-app/src/main/resources/mybatis/mapper/group_buy_order_mapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group-buy-market-app/src/main/resources/mybatis/mapper/notify_task_mapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-app/src/main/resources/mybatis/mapper/notify_task_mapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group-buy-market-app/src/test/java/cn/bugstack/test/domain/trade/ITradeLockOrderServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-app/src/test/java/cn/bugstack/test/domain/trade/ITradeLockOrderServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group-buy-market-app/src/test/java/cn/bugstack/test/domain/trade/TradeSettlementOrderServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-app/src/test/java/cn/bugstack/test/domain/trade/TradeSettlementOrderServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/group-buy-market-app/src/test/java/cn/bugstack/test/trigger/MarketTradeControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-app/src/test/java/cn/bugstack/test/trigger/MarketTradeControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/tag/service/TagService.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/tag/service/TagService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/adapter/repository/ITradeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/adapter/repository/ITradeRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/model/entity/MarketPayOrderEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/model/entity/MarketPayOrderEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/service/ITradeOrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/service/ITradeLockOrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/service/TradeOrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/service/lock/TradeLockOrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/service/factory/TradeRuleFilterFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/service/lock/factory/TradeRuleFilterFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/service/filter/ActivityUsabilityRuleFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/service/lock/filter/ActivityUsabilityRuleFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/service/filter/UserTakeLimitRuleFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/service/lock/filter/UserTakeLimitRuleFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/model/entity/GroupBuyTeamEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/model/entity/GroupBuyTeamEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/model/entity/PayActivityEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/model/entity/PayActivityEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/model/entity/TradePaySuccessEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/model/entity/TradePaySuccessEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/model/entity/TradeRuleCommandEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/model/entity/TradeLockRuleCommandEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/model/entity/TradeRuleFilterBackEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/model/entity/TradeLockRuleFilterBackEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/service/ITradeSettlementOrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/service/ITradeSettlementOrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/service/lock/TradeLockOrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/service/lock/TradeLockOrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/service/lock/factory/TradeRuleFilterFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/service/lock/factory/TradeRuleFilterFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/service/lock/filter/ActivityUsabilityRuleFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/service/lock/filter/ActivityUsabilityRuleFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/service/lock/filter/UserTakeLimitRuleFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/service/lock/filter/UserTakeLimitRuleFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/service/settlement/TradeSettlementOrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-domain/src/main/java/cn/bugstack/domain/trade/service/settlement/TradeSettlementOrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group-buy-market-infrastructure/src/main/java/cn/bugstack/infrastructure/adapter/repository/TagRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-infrastructure/src/main/java/cn/bugstack/infrastructure/adapter/repository/TagRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/group-buy-market-infrastructure/src/main/java/cn/bugstack/infrastructure/adapter/repository/TradeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-infrastructure/src/main/java/cn/bugstack/infrastructure/adapter/repository/TradeRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/group-buy-market-infrastructure/src/main/java/cn/bugstack/infrastructure/dao/IGroupBuyOrderDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-infrastructure/src/main/java/cn/bugstack/infrastructure/dao/IGroupBuyOrderDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/group-buy-market-infrastructure/src/main/java/cn/bugstack/infrastructure/dao/IGroupBuyOrderListDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-infrastructure/src/main/java/cn/bugstack/infrastructure/dao/IGroupBuyOrderListDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group-buy-market-infrastructure/src/main/java/cn/bugstack/infrastructure/dao/po/GroupBuyOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-infrastructure/src/main/java/cn/bugstack/infrastructure/dao/po/GroupBuyOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group-buy-market-infrastructure/src/main/java/cn/bugstack/infrastructure/dao/po/GroupBuyOrderList.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-infrastructure/src/main/java/cn/bugstack/infrastructure/dao/po/GroupBuyOrderList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group-buy-market-infrastructure/src/main/java/cn/bugstack/infrastructure/dcc/DCCService.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-infrastructure/src/main/java/cn/bugstack/infrastructure/dcc/DCCService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/group-buy-market-trigger/src/main/java/cn/bugstack/trigger/http/MarketTradeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-trigger/src/main/java/cn/bugstack/trigger/http/MarketTradeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/group-buy-market-types/src/main/java/cn/bugstack/types/enums/ActivityStatusEnumVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-types/src/main/java/cn/bugstack/types/enums/ActivityStatusEnumVO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/group-buy-market-types/src/main/java/cn/bugstack/types/enums/ResponseCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/group-buy-market-types/src/main/java/cn/bugstack/types/enums/ResponseCode.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -97,46 +102,46 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JUnit.DCCControllerTest.executor": "Run",
-    "JUnit.DCCControllerTest.test_updateConfig2indexMarketTrial.executor": "Run",
-    "JUnit.IIndexGroupBuyMarketServiceTest.executor": "Run",
-    "JUnit.IIndexGroupBuyMarketServiceTest.test_indexMarketTrial.executor": "Run",
-    "JUnit.IIndexGroupBuyMarketServiceTest.test_indexMarketTrial_no_tag.executor": "Run",
-    "JUnit.ITagServiceTest.executor": "Run",
-    "JUnit.ITagServiceTest.test_get_tag_bitmap.executor": "Run",
-    "JUnit.ITagServiceTest.test_tag_job.executor": "Run",
-    "JUnit.ITradeLockOrderServiceTest.executor": "Run",
-    "JUnit.ITradeLockOrderServiceTest.test_lockMarketPayOrder.executor": "Run",
-    "JUnit.Link01Test.executor": "Run",
-    "JUnit.Link02Test.executor": "Run",
-    "JUnit.MarketTradeControllerTest.test_lockMarketPayOrder.executor": "Run",
-    "JUnit.MarketTradeControllerTest.test_lockMarketPayOrder_teamId_not_null.executor": "Run",
-    "JUnit.TradeSettlementOrderServiceTest.executor": "Run",
-    "JUnit.TradeSettlementOrderServiceTest.test_settlementMarketPayOrder.executor": "Run",
-    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Spring Boot.Application.executor": "Run",
-    "git-widget-placeholder": "26-04-22-trade-settlement",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JUnit.DCCControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DCCControllerTest.test_updateConfig2indexMarketTrial.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.IIndexGroupBuyMarketServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.IIndexGroupBuyMarketServiceTest.test_indexMarketTrial.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.IIndexGroupBuyMarketServiceTest.test_indexMarketTrial_no_tag.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ITagServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ITagServiceTest.test_get_tag_bitmap.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ITagServiceTest.test_tag_job.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ITradeLockOrderServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ITradeLockOrderServiceTest.test_lockMarketPayOrder.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Link01Test.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Link02Test.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MarketTradeControllerTest.test_lockMarketPayOrder.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MarketTradeControllerTest.test_lockMarketPayOrder_teamId_not_null.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TradeSettlementOrderServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TradeSettlementOrderServiceTest.test_settlementMarketPayOrder.executor&quot;: &quot;Run&quot;,
+    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.Application.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;26-04-22-settlement-rule&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="JUnit.TradeSettlementOrderServiceTest.test_settlementMarketPayOrder">
     <configuration name="ITradeLockOrderServiceTest.test_lockMarketPayOrder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="group-buy-market-app" />
@@ -227,10 +232,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.TradeSettlementOrderServiceTest.test_settlementMarketPayOrder" />
-        <item itemvalue="JUnit.TradeSettlementOrderServiceTest" />
         <item itemvalue="JUnit.ITradeLockOrderServiceTest.test_lockMarketPayOrder" />
         <item itemvalue="JUnit.MarketTradeControllerTest.test_lockMarketPayOrder_teamId_not_null" />
         <item itemvalue="JUnit.MarketTradeControllerTest.test_lockMarketPayOrder" />
+        <item itemvalue="JUnit.TradeSettlementOrderServiceTest" />
       </list>
     </recent_temporary>
   </component>
@@ -290,6 +295,8 @@
       <workItem from="1776699656552" duration="54000" />
       <workItem from="1776738879611" duration="12766000" />
       <workItem from="1776819582693" duration="22887000" />
+      <workItem from="1776921208598" duration="7102000" />
+      <workItem from="1776992399280" duration="6529000" />
     </task>
     <task id="LOCAL-00001" summary="build">
       <option name="closed" value="true" />
@@ -394,6 +401,7 @@
     <MESSAGE value="whh" />
     <MESSAGE value="修改bug" />
     <MESSAGE value="动态配置开关操作" />
-    <option name="LAST_COMMIT_MESSAGE" value="动态配置开关操作" />
+    <MESSAGE value="拼团组队结算统计" />
+    <option name="LAST_COMMIT_MESSAGE" value="拼团组队结算统计" />
   </component>
 </project>
