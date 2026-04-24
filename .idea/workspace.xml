@@ -97,46 +97,46 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JUnit.DCCControllerTest.executor": "Run",
-    "JUnit.DCCControllerTest.test_updateConfig2indexMarketTrial.executor": "Run",
-    "JUnit.IIndexGroupBuyMarketServiceTest.executor": "Run",
-    "JUnit.IIndexGroupBuyMarketServiceTest.test_indexMarketTrial.executor": "Run",
-    "JUnit.IIndexGroupBuyMarketServiceTest.test_indexMarketTrial_no_tag.executor": "Run",
-    "JUnit.ITagServiceTest.executor": "Run",
-    "JUnit.ITagServiceTest.test_get_tag_bitmap.executor": "Run",
-    "JUnit.ITagServiceTest.test_tag_job.executor": "Run",
-    "JUnit.ITradeLockOrderServiceTest.executor": "Run",
-    "JUnit.ITradeLockOrderServiceTest.test_lockMarketPayOrder.executor": "Run",
-    "JUnit.Link01Test.executor": "Run",
-    "JUnit.Link02Test.executor": "Run",
-    "JUnit.MarketTradeControllerTest.test_lockMarketPayOrder.executor": "Run",
-    "JUnit.MarketTradeControllerTest.test_lockMarketPayOrder_teamId_not_null.executor": "Run",
-    "JUnit.TradeSettlementOrderServiceTest.executor": "Run",
-    "JUnit.TradeSettlementOrderServiceTest.test_settlementMarketPayOrder.executor": "Run",
-    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Spring Boot.Application.executor": "Run",
-    "git-widget-placeholder": "26-04-22-trade-settlement",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JUnit.DCCControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DCCControllerTest.test_updateConfig2indexMarketTrial.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.IIndexGroupBuyMarketServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.IIndexGroupBuyMarketServiceTest.test_indexMarketTrial.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.IIndexGroupBuyMarketServiceTest.test_indexMarketTrial_no_tag.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ITagServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ITagServiceTest.test_get_tag_bitmap.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ITagServiceTest.test_tag_job.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ITradeLockOrderServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ITradeLockOrderServiceTest.test_lockMarketPayOrder.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Link01Test.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Link02Test.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MarketTradeControllerTest.test_lockMarketPayOrder.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MarketTradeControllerTest.test_lockMarketPayOrder_teamId_not_null.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TradeSettlementOrderServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TradeSettlementOrderServiceTest.test_settlementMarketPayOrder.executor&quot;: &quot;Run&quot;,
+    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.Application.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;26-04-22-trade-settlement&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="JUnit.TradeSettlementOrderServiceTest.test_settlementMarketPayOrder">
     <configuration name="ITradeLockOrderServiceTest.test_lockMarketPayOrder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="group-buy-market-app" />
@@ -228,9 +228,9 @@
       <list>
         <item itemvalue="JUnit.TradeSettlementOrderServiceTest.test_settlementMarketPayOrder" />
         <item itemvalue="JUnit.TradeSettlementOrderServiceTest" />
-        <item itemvalue="JUnit.ITradeLockOrderServiceTest.test_lockMarketPayOrder" />
         <item itemvalue="JUnit.MarketTradeControllerTest.test_lockMarketPayOrder_teamId_not_null" />
         <item itemvalue="JUnit.MarketTradeControllerTest.test_lockMarketPayOrder" />
+        <item itemvalue="JUnit.ITradeLockOrderServiceTest.test_lockMarketPayOrder" />
       </list>
     </recent_temporary>
   </component>
