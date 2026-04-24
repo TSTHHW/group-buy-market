@@ -9,10 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class TradeRuleCommandEntity {
+public class TradeLockRuleFilterBackEntity {
 
-    private String userId;
-
-    private Long activityId;
-
+    private Integer userTakeOrderCount;
 }

@@ -32,7 +32,7 @@ public class TagService implements ITagService{
         List<String> userIdList = new ArrayList<String>() {{
             add("xiaofuge");
             add("liergou");
-            add("whh1");
+            add("whh");
             add("xhg2");
             add("wjj3");
             add("ooo4");

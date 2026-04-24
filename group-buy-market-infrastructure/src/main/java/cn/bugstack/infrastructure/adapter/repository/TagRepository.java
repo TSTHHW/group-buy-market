@@ -51,29 +51,21 @@ public class TagRepository implements ITagRepository {
     //当系统确定某一个用户（userId）符合某一个标签（tagId）时，调用此方法。
     @Override
     public void addCrowdTagsUserId(String tagId, String userId) {
-        log.info("开始添加用户标签 tagId:{} userId:{}", tagId, userId);
-
         CrowdTagsDetail crowdTagsDetailReq = new CrowdTagsDetail();
         crowdTagsDetailReq.setTagId(tagId);
         crowdTagsDetailReq.setUserId(userId);
 
+        // DB写入：已存在则忽略
         try {
             crowdTagsDetailDao.addCrowdTagsUserId(crowdTagsDetailReq);
-            log.info("数据库写入成功 tagId:{} userId:{}", tagId, userId);
-
-            // 获取BitSet
-            RBitSet bitSet = redisService.getBitSet(tagId);
-            int index = redisService.getIndexFromUserId(userId);
-            log.info("准备写入Redis BitSet index:{} userId:{}", index, userId);
-            bitSet.set(index, true);
-            log.info("Redis BitSet写入成功 tagId:{} userId:{} index:{}", tagId, userId, index);
         } catch (DuplicateKeyException ignore) {
-            // 忽略唯一索引冲突
-            log.warn("用户标签已存在，跳过 tagId:{} userId:{}", tagId, userId);
-        } catch (Exception e) {
-            log.error("添加用户标签失败 tagId:{} userId:{}", tagId, userId, e);
-            throw e;
+            log.warn("用户标签已存在，跳过DB写入 tagId:{} userId:{}", tagId, userId);
         }
+
+        // Redis BitSet写入：无论DB是否成功，都应该写入
+        RBitSet bitSet = redisService.getBitSet(tagId);
+        int index = redisService.getIndexFromUserId(userId);
+        bitSet.set(index, true);
     }
 
     //统计对应标签的人群数量
