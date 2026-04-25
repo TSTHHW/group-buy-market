@@ -141,4 +141,5 @@ public class DCCValueBeanFactory implements BeanPostProcessor {
 
         return bean;
     }
+
 }

@@ -23,16 +23,22 @@ public class SettableRuleFilter implements ILogicHandler<TradeSettlementRuleComm
     public TradeSettlementRuleFilterBackEntity apply(TradeSettlementRuleCommandEntity requestParameter, TradeSettlementRuleFilterFactory.DynamicContext dynamicContext) throws Exception {
         log.info("结算规则过滤-有效时间校验{} outTradeNo:{}", requestParameter.getUserId(), requestParameter.getOutTradeNo());
 
+        // 上下文；获取数据
         MarketPayOrderEntity marketPayOrderEntity = dynamicContext.getMarketPayOrderEntity();
 
         GroupBuyTeamEntity groupBuyTeamEntity = repository.queryGroupBuyTeamEntityByTeamId(marketPayOrderEntity.getTeamId());
         Date outTradeTime = requestParameter.getOutTradeTime();
-        if(!outTradeTime.before(groupBuyTeamEntity.getValidEndTime())){
+
+        // 判断，外部交易时间，要小于拼团结束时间。否则抛异常。
+        if (!outTradeTime.before(groupBuyTeamEntity.getValidEndTime())) {
             log.error("订单交易时间不在拼团有效时间范围内");
             throw new AppException(ResponseCode.E0106);
         }
 
+        // 设置上下文
         dynamicContext.setGroupBuyTeamEntity(groupBuyTeamEntity);
+
         return next(requestParameter, dynamicContext);
     }
+
 }

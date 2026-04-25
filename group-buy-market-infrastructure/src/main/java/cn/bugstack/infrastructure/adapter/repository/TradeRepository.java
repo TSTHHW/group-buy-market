@@ -30,10 +30,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 import static cn.bugstack.types.enums.ResponseCode.*;
 
@@ -68,17 +65,6 @@ public class TradeRepository implements ITradeRepository {
                 .build();
     }
 
-    @Override
-    public GroupBuyProgressVO queryGroupBuyProgress(String teamId) {
-        GroupBuyOrder groupBuyOrder = groupBuyOrderDao.queryGroupBuyProgress(teamId);
-        if (null == groupBuyOrder) return null;
-        return GroupBuyProgressVO.builder()
-                .completeCount(groupBuyOrder.getCompleteCount())
-                .targetCount(groupBuyOrder.getTargetCount())
-                .lockCount(groupBuyOrder.getLockCount())
-                .build();
-    }
-
     @Transactional(timeout = 500)
     @Override
     public MarketPayOrderEntity lockMarketPayOrder(GroupBuyOrderAggregate groupBuyOrderAggregate) {
@@ -96,6 +82,7 @@ public class TradeRepository implements ITradeRepository {
             calendar.setTime(currentDate);
             calendar.add(Calendar.MINUTE, payActivityEntity.getValidTime());
 
+            // 构建拼团订单
             GroupBuyOrder groupBuyOrder = GroupBuyOrder.builder()
                     .teamId(teamId)
                     .activityId(payActivityEntity.getActivityId())
@@ -109,10 +96,13 @@ public class TradeRepository implements ITradeRepository {
                     .lockCount(1)
                     .validStartTime(currentDate)
                     .validEndTime(calendar.getTime())
+                    .notifyUrl(payDiscountEntity.getNotifyUrl())
                     .build();
 
+            // 写入记录
             groupBuyOrderDao.insert(groupBuyOrder);
-        } else{
+        } else {
+            // 更新记录 - 如果更新记录不等于1，则表示拼团已满，抛出异常
             int updateAddTargetCount = groupBuyOrderDao.updateAddLockCount(teamId);
             if (1 != updateAddTargetCount) {
                 throw new AppException(ResponseCode.E0005);
@@ -120,7 +110,7 @@ public class TradeRepository implements ITradeRepository {
         }
 
         String orderId = RandomStringUtils.randomNumeric(12);
-        GroupBuyOrderList groupBuyOrderList = GroupBuyOrderList.builder()
+        GroupBuyOrderList groupBuyOrderListReq = GroupBuyOrderList.builder()
                 .userId(userEntity.getUserId())
                 .teamId(teamId)
                 .orderId(orderId)
@@ -137,9 +127,9 @@ public class TradeRepository implements ITradeRepository {
                 // 构建 bizId 唯一值；活动id_用户id_参与次数累加
                 .bizId(payActivityEntity.getActivityId() + Constants.UNDERLINE + userEntity.getUserId() + Constants.UNDERLINE + (userTakeOrderCount + 1))
                 .build();
-
         try {
-            groupBuyOrderListDao.insert(groupBuyOrderList);
+            // 写入拼团记录
+            groupBuyOrderListDao.insert(groupBuyOrderListReq);
         } catch (DuplicateKeyException e) {
             throw new AppException(ResponseCode.INDEX_EXCEPTION);
         }
@@ -148,6 +138,17 @@ public class TradeRepository implements ITradeRepository {
                 .orderId(orderId)
                 .deductionPrice(payDiscountEntity.getDeductionPrice())
                 .tradeOrderStatusEnumVO(TradeOrderStatusEnumVO.CREATE)
+                .build();
+    }
+
+    @Override
+    public GroupBuyProgressVO queryGroupBuyProgress(String teamId) {
+        GroupBuyOrder groupBuyOrder = groupBuyOrderDao.queryGroupBuyProgress(teamId);
+        if (null == groupBuyOrder) return null;
+        return GroupBuyProgressVO.builder()
+                .completeCount(groupBuyOrder.getCompleteCount())
+                .targetCount(groupBuyOrder.getTargetCount())
+                .lockCount(groupBuyOrder.getLockCount())
                 .build();
     }
 
@@ -190,17 +191,19 @@ public class TradeRepository implements ITradeRepository {
                 .status(GroupBuyOrderEnumVO.valueOf(groupBuyOrder.getStatus()))
                 .validStartTime(groupBuyOrder.getValidStartTime())
                 .validEndTime(groupBuyOrder.getValidEndTime())
+                .notifyUrl(groupBuyOrder.getNotifyUrl())
                 .build();
     }
 
     @Transactional(timeout = 500)
     @Override
-    public void settlementMarketPayOrder(GroupBuyTeamSettlementAggregate groupBuyTeamSettlementAggregate) {
+    public boolean settlementMarketPayOrder(GroupBuyTeamSettlementAggregate groupBuyTeamSettlementAggregate) {
 
         UserEntity userEntity = groupBuyTeamSettlementAggregate.getUserEntity();
         GroupBuyTeamEntity groupBuyTeamEntity = groupBuyTeamSettlementAggregate.getGroupBuyTeamEntity();
         TradePaySuccessEntity tradePaySuccessEntity = groupBuyTeamSettlementAggregate.getTradePaySuccessEntity();
 
+        // 1. 更新拼团订单明细状态
         GroupBuyOrderList groupBuyOrderListReq = new GroupBuyOrderList();
         groupBuyOrderListReq.setUserId(userEntity.getUserId());
         groupBuyOrderListReq.setOutTradeNo(tradePaySuccessEntity.getOutTradeNo());
@@ -211,34 +214,41 @@ public class TradeRepository implements ITradeRepository {
             throw new AppException(ResponseCode.UPDATE_ZERO);
         }
 
+        // 2. 更新拼团达成数量
         int updateAddCount = groupBuyOrderDao.updateAddCompleteCount(groupBuyTeamEntity.getTeamId());
         if (1 != updateAddCount) {
             throw new AppException(ResponseCode.UPDATE_ZERO);
         }
 
-        if(groupBuyTeamEntity.getTargetCount() - groupBuyTeamEntity.getCompleteCount() == 1){
+        // 3. 更新拼团完成状态
+        if (groupBuyTeamEntity.getTargetCount() - groupBuyTeamEntity.getCompleteCount() == 1) {
             int updateOrderStatusCount = groupBuyOrderDao.updateOrderStatus2COMPLETE(groupBuyTeamEntity.getTeamId());
             if (1 != updateOrderStatusCount) {
                 throw new AppException(ResponseCode.UPDATE_ZERO);
             }
 
+            // 查询拼团交易完成外部单号列表
             List<String> outTradeNoList = groupBuyOrderListDao.queryGroupBuyCompleteOrderOutTradeNoListByTeamId(groupBuyTeamEntity.getTeamId());
 
             // 拼团完成写入回调任务记录
             NotifyTask notifyTask = new NotifyTask();
             notifyTask.setActivityId(groupBuyTeamEntity.getActivityId());
             notifyTask.setTeamId(groupBuyTeamEntity.getTeamId());
-            notifyTask.setNotifyUrl("暂无");
+            notifyTask.setNotifyUrl(groupBuyTeamEntity.getNotifyUrl());
             notifyTask.setNotifyCount(0);
             notifyTask.setNotifyStatus(0);
+
             notifyTask.setParameterJson(JSON.toJSONString(new HashMap<String, Object>() {{
                 put("teamId", groupBuyTeamEntity.getTeamId());
                 put("outTradeNoList", outTradeNoList);
             }}));
 
             notifyTaskDao.insert(notifyTask);
+
+            return true;
         }
 
+        return false;
     }
 
     @Override
@@ -246,5 +256,52 @@ public class TradeRepository implements ITradeRepository {
         return dccService.isSCBlackIntercept(source, channel);
     }
 
+    @Override
+    public List<NotifyTaskEntity> queryUnExecutedNotifyTaskList() {
+        List<NotifyTask> notifyTaskList = notifyTaskDao.queryUnExecutedNotifyTaskList();
+        if (notifyTaskList.isEmpty()) return new ArrayList<>();
+
+        List<NotifyTaskEntity> notifyTaskEntities = new ArrayList<>();
+        for (NotifyTask notifyTask : notifyTaskList) {
+
+            NotifyTaskEntity notifyTaskEntity = NotifyTaskEntity.builder()
+                        .teamId(notifyTask.getTeamId())
+                        .notifyUrl(notifyTask.getNotifyUrl())
+                        .notifyCount(notifyTask.getNotifyCount())
+                        .parameterJson(notifyTask.getParameterJson())
+                        .build();
+
+            notifyTaskEntities.add(notifyTaskEntity);
+        }
+
+        return notifyTaskEntities;
+    }
+
+    @Override
+    public List<NotifyTaskEntity> queryUnExecutedNotifyTaskList(String teamId) {
+        NotifyTask notifyTask = notifyTaskDao.queryUnExecutedNotifyTaskByTeamId(teamId);
+        if (null == notifyTask) return new ArrayList<>();
+        return Collections.singletonList(NotifyTaskEntity.builder()
+                .teamId(notifyTask.getTeamId())
+                .notifyUrl(notifyTask.getNotifyUrl())
+                .notifyCount(notifyTask.getNotifyCount())
+                .parameterJson(notifyTask.getParameterJson())
+                .build());
+    }
+
+    @Override
+    public int updateNotifyTaskStatusSuccess(String teamId) {
+        return notifyTaskDao.updateNotifyTaskStatusSuccess(teamId);
+    }
+
+    @Override
+    public int updateNotifyTaskStatusError(String teamId) {
+        return notifyTaskDao.updateNotifyTaskStatusError(teamId);
+    }
+
+    @Override
+    public int updateNotifyTaskStatusRetry(String teamId) {
+        return notifyTaskDao.updateNotifyTaskStatusRetry(teamId);
+    }
 
 }
