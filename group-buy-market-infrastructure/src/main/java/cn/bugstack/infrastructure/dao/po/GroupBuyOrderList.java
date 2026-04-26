@@ -46,6 +46,8 @@ public class GroupBuyOrderList {
     private Date outTradeTime;
     /** 唯一业务ID */
     private String bizId;
+    /** 数量 */
+    private Integer count;
     /** 创建时间 */
     private Date createTime;
     /** 更新时间 */
