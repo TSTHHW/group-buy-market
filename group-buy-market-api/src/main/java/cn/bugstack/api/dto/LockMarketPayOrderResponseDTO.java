@@ -15,4 +15,6 @@ public class LockMarketPayOrderResponseDTO {
     private String orderId;
     private BigDecimal deductionPrice;
     private Integer tradeOrderStatus;
+    private BigDecimal originalPrice;
+    private BigDecimal payPrice;
 }
