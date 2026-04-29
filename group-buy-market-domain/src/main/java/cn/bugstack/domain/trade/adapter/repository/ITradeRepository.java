@@ -14,9 +14,9 @@ public interface ITradeRepository {
 
     MarketPayOrderEntity queryMarketPayOrderEntityByOutTradeNo(String userId, String outTradeNo);
 
-    GroupBuyProgressVO queryGroupBuyProgress(String teamId);
-
     MarketPayOrderEntity lockMarketPayOrder(GroupBuyOrderAggregate groupBuyOrderAggregate);
+
+    GroupBuyProgressVO queryGroupBuyProgress(String teamId);
 
     GroupBuyActivityEntity queryGroupBuyActivityEntityByActivityId(Long activityId);
 
@@ -34,7 +34,12 @@ public interface ITradeRepository {
 
     int updateNotifyTaskStatusSuccess(String teamId);
 
+    int updateNotifyTaskStatusError(String teamId);
+
     int updateNotifyTaskStatusRetry(String teamId);
 
-    int updateNotifyTaskStatusError(String teamId);
+    boolean occupyTeamStock(String teamStockKey, String recoveryTeamStockKey, Integer target, Integer validTime);
+
+    void recoveryTeamStock(String recoveryTeamStockKey, Integer validTime);
+
 }
